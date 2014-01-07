@@ -61,8 +61,6 @@ package edu.mit.csail.wami.client
 	
 		public function WamiParams(params:Object):void
 		{
-			mic = Microphone.getMicrophone();
-			
 			External.addCallback("setSettings", setSettings);
 			External.addCallback("getSettings", getSettings);
 			
@@ -97,6 +95,7 @@ package edu.mit.csail.wami.client
 		}
 		
 		public function getMicrophone():Microphone {
+			if (!mic) Microphone.getMicrophone();
 			return mic;
 		}
 		
